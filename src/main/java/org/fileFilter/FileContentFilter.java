@@ -4,6 +4,9 @@ import java.io.*;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.math.RoundingMode;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -31,12 +34,45 @@ public class FileContentFilter {
         while(i < args.length) {
             switch (args[i]) {
                 case "-o" -> {
-                    path = args[i + 1];
-                    i += 2;
+                    if (args.length > i + 1 && args[i + 1] != null) {
+                        path = args[i + 1];
+                        Path pathCheck = Paths.get(path);
+                        if (!Files.exists(pathCheck)) {
+                            System.out.println("This " + path + " directory does not exist." +
+                                    " The default directory will be used");
+                            path = "";
+                        }
+                        i += 2;
+                    } else {
+                        i += 1;
+                        System.out.println(
+                                "The parameters are not set correctly. " +
+                                        "Please try again based on the call pattern " + "\n" +
+                                        "java -jar FileContentFilter.jar [-o path]" +
+                                        " [-p prefix] [-a] [-f|-s] file_name [file_name_1 file_name_2 ..]"
+                        );
+                    }
                 }
                 case "-p" -> {
-                    prefix = args[i + 1];
-                    i += 2;
+                    if (args.length > i + 1 && args[i + 1] != null) {
+                        prefix = args[i + 1];
+                        if (prefix.matches(".*[><:|\"?*\\\\]+.*")) {
+                            System.out.println(
+                                    "Incorrect file prefix. " +
+                                            "Do not use illegal characters \"\\<>?:|/*\". " +
+                                            "Default files will be used. ");
+                            prefix = "";
+                        }
+                        i += 2;
+                    } else {
+                        i += 1;
+                        System.out.println(
+                                "The parameters are not set correctly. " +
+                                        "Please try again based on the call pattern " + "\n" +
+                                        "java -jar FileContentFilter.jar [-o path]" +
+                                        " [-p prefix] [-a] [-f|-s] file_name [file_name_1 file_name_2 ..]"
+                        );
+                    }
                 }
                 case "-a" -> {
                     additionMode = true;
@@ -57,6 +93,13 @@ public class FileContentFilter {
                     }
                 }
             }
+        }
+        if (fileList.size() == 0){
+            System.out.println("No files are entered. " +
+                    "Please try again based on the call pattern " + "\n" +
+                    "java -jar FileContentFilter.jar [-o path]" +
+                    " [-p prefix] [-a] [-f|-s] file_name [file_name_1 file_name_2 ..]"
+            );
         }
 
         String str;
@@ -178,7 +221,7 @@ public class FileContentFilter {
 
 
 /*
-integers.txt, floats.txt, strings.txt.
+integers.txt, floats.txt, strings.txt - Default files.
 
 -o задавать путь к эти файлам
 

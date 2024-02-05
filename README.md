@@ -5,8 +5,8 @@
 
 __java -jar FileContentFilter.jar [-o path] [-p prefix] [-a] [-f|-s] file_name [file_name_1 file_name_2 ..]__
 
-где __FileContentFilter.jar__ - название утилиты,  __file_name [file_name_1 file_name_2 ..]__ - название вводимого[ых] файла[ов]. Для запуска программы на вашем компьютере должна быть установлена Java 18 (62) версии и выше.  
-Остальные параметры являются вспомогательными и необязательны к использованию.
+где __FileContentFilter.jar__ - название утилиты,  __file_name [file_name_1 file_name_2 ..]__ - название вводимого[ых] файла[ов]. Остальные параметры являются вспомогательными и необязательны к использованию.  
+Для запуска программы на вашем компьютере должна быть установлена Java 18 (62) версии и выше.  
 
 Программу можно самостоятельно запустить с помощью IDE, поддерживающей Java версии 18 (62) и выше. Ввод параметров программы определяется IDE и может быть индивидуален.
 
@@ -41,8 +41,8 @@ To run the utility, you need to use the __FileContentFilter.jar__ file located i
 
 __java -jar FileContentFilter.jar [-o path] [-p prefix] [-a] [-f|-s] file_name [file_name_1 file_name_2 ..]__
 
-where __FileContentFilter.jar__ is the name of the utility, __file_name [file_name_1 file_name_2 ..]__ is the name of the input file[s]. To run the program, Java 18 (62) version or higher must be installed on your computer.  
-The remaining parameters are auxiliary and optional.  
+where __FileContentFilter.jar__ is the name of the utility, __file_name [file_name_1 file_name_2 ..]__ is the name of the input file[s]. The remaining parameters are auxiliary and optional.  
+To run the program, Java 18 (62) version or higher must be installed on your computer.  
 
 You can run the program yourself using an IDE that supports Java version 18 (62) and higher. The input of program parameters is determined by the IDE and can be individual.  
 

@@ -16,7 +16,7 @@ java -jar FileContentFilter.jar [-o path] [-p prefix] [-a] [-f|-s] file_name [fi
 -p prefix - задаёт префикс prefix к выходным файлам. Например, -p sample_, следовательно выходные файлы будут называться sample_integers.txt, sample_floats.txt, sample_strings.txt.
 -a - включает режим дозаписи в файл. По умолчанию все выходные файлы перезаписываются новым содержимым.
 -s - вывод количества записанных элементов в каждый выходной файл.
--f - вывод расширенной статистики. Минимальное, максимальное, среднее значения и сумма для целочисленных чисел и для чисел с плавающей точкой. Для строк выводит размер самой большой и самой короткой строки.
+-f - вывод расширенной статистики. Минимальное, максимальное, среднее значения и сумма для целочисленных чисел и для чисел с плавающей точкой. Для строк выводит размер самой большой и самой короткой строки. Выводит также всё тоже, что и -s параметр. Если будут использоваться оба параметра, и -s и -f, то выведется информация только для -f. 
 Если ввести неправильно параметры программа выведет предупреждение или ошибку и сообщит о проблеме.
 
 Про распознанение типов.
@@ -25,7 +25,7 @@ java -jar FileContentFilter.jar [-o path] [-p prefix] [-a] [-f|-s] file_name [fi
 Например стока "12345 abc" - строка, а "1.25" - число с плавающей точкой. 
 Если в строке встреться числа обоих типов, "floats" и "integers", то программа их также отнесет к строкам.
 
-Данная программа была выполнена в качестве тестового задания.
+Данная программа была сделана в качестве тестового задания.
 
 
 (EN)
@@ -45,7 +45,7 @@ Optional Parameters
 -p prefix - sets the prefix to the output files. For example, -p sample_, therefore the output files will be named sample_integers.txt, sample_floats.txt, sample_strings.txt.
 -a - turns on the mode of appending to the file. By default, all output files are overwritten with new content.
 -s - output the number of elements written to each output file.
--f - display extended statistics. Minimum, maximum, average and sum for integer and floating point numbers. For strings, displays the size of the largest and shortest string.
+-f - display extended statistics. Minimum, maximum, average and sum for integer and floating point numbers. For strings, displays the size of the largest and shortest string. It also outputs everything the same as the -s parameter. If both -s and -f are used, only the information for -f will be printed.
 If you enter incorrect parameters, the program will display a warning or error and report a problem.
 
 About type recognition.
@@ -54,4 +54,4 @@ Since the separator of elements in the program is line feed, everything that doe
 For example, "12345 abc" is a string, and "1.25" is a floating point number.
 If a line contains numbers of both types, "floats" and "integers", then the program will also classify them as strings.
 
-This program was executed as a test task.
+This program was made as a test task.
